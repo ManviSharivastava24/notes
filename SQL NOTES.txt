@@ -1,0 +1,83 @@
+SQL
+  
+JOINS
+
+IN JOIN + GROUP BY
+
+Remember this interview rule
+Every selected column must be either:
+1. Included in GROUP BY.
+2. Used inside an aggregate function.
+3. Functionally dependent on the grouped columns (when supported by the SQL engine).
+..............
+
+
+
+SELECT dept_name, COUNT(*)
+FROM Departments
+GROUP BY dept_id;
+
+Yes, this query will work in MySQL with ONLY_FULL_GROUP_BY enabled.
+
+Why?
+
+Because dept_id is the PRIMARY KEY.
+
+That means:
+- Every dept_id is unique.
+- Each dept_id determines exactly one dept_name.
+- Therefore, dept_name is functionally dependent on dept_id.
+Remember this interview concept
+Functional Dependency:
+
+If knowing column A uniquely determines column B, we write:
+A->B
+
+Here:
+
+dept_id -> dept_name
+
+
+This is why MySQL allows dept_name in SELECT without explicitly including it in GROUP BY.
+..............
+
+SELECT dept_id, dept_name, salary
+FROM Employees
+GROUP BY dept_id, dept_name;
+
+
+Yes, it will fail under MySQL's ONLY_FULL_GROUP_BY mode.
+
+
+Why?
+
+Look at department 101:
+dept_id	dept_name	salary
+101	IT	60000
+101	IT	90000
+
+After grouping by dept_id and dept_name, SQL has one group for IT.
+
+But which salary should it display?
+- 60000?
+- 90000?
+SQL cannot decide because salary is neither grouped nor aggregated.
+How to fix it?
+SELECT dept_id, dept_name, MAX(salary)
+FROM Employees
+GROUP BY dept_id, dept_name;
+
+
+Now it works because MAX(salary) calculates one value per group.
+..................................
+
+Remember this interview rule
+Whenever two joined tables have columns with the same name, always use table aliases to specify which table's column you mean.
+
+For example:
+GROUP BY c.customer_id;
+
+
+instead of:
+GROUP BY customer_id;
+...................................

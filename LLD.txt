@@ -1,0 +1,15 @@
+LLD
+STRATEGY DESIGN PATTERN
+here inheritence is replaced by composition.
+The Strategy Design Pattern is a behavioral design pattern that allows us to define multiple algorithms for performing a particular task, encapsulate each algorithm in a separate class, and make them interchangeable at runtime.
+
+In simple words:
+
+Instead of writing multiple if-else conditions for different behaviours, we create separate classes for each behaviour and choose which one to execute at runtime.
+1. Real-world example
+Suppose you are developing a payment application like Amazon.
+
+Customers can pay using:
+- Credit Card
+- UPI
+- PayPal

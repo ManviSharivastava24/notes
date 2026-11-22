@@ -1,0 +1,38 @@
+https://algomaster.io/learn/computer-networks/20-must-know-networking-concepts
+
+networking
+
+OSI MODEL
+OSI model is just a theoretical reference model, Now Application layer is the topmost layer in the OSI model. The Application Layer provides us with a set of protocols that we can use to interact with the network. Like HTTP, FTP, Telnet and etc. Every layer has certain protocols like Transport Layer(segments) has TCP/UDP, Network Layer(packets) has IP, and Data Link Layer(frames) has MAC and the Physical layer is responsible for transmitting the raw bits by converting them into electric signals.
+
+NAT: Network access table .it basically allows various devices(private ip addresses)  to share a common public ip address while keeping private address hidden from internet.
+
+
+DHCP: DHCP configure network setting of device. suppose our laptop is connected to a Wifi then a DHCP attached to it will provide ip address and other  network setting.
+
+MAC: using mac address devices communicate and deliver frames  using mac address in same local network.
+
+ARP: address resolution protocol. it maps mac address to ip address.it also has ARP cache.
+
+Switch :switch mainly forwards frames in same network.it uses mac address and MAT. that's how our laptop ,mobile ,printer and other devices communicate without each data being sent to each devices .they operate at data link layer.
+
+TCP: reliable ordered  transmission of data.it uses three way handshake. syn syn-ack ack. it also provides flow control and congestion control.
+
+UDP: connectionless alternate to tcp . less overhead and faster . video calls ,online gaming . at transport layer.
+
+TLS: transport layer security provides reliable communication(https). tls starts with a handshake where during this server presnets its digital certificate to prove its identity then they establish shared session keys. tls provides encryption ,integrity, and authentication.
+
+firewall: firewall ensures which newtwork is allow to enter a system.
+
+vpn: virtual private network.webistes see vpn ip address instead of actual device. before recing actual website aur request go thorugh secure tunnel then vpn.
+
+proxies: proxies (forward) sits between client and internet.proxy forward request inhalf of us to netwrok.
+reverse proxies sits in fornt of ine or more backend servers.
+load balancer often servers as reverse proxies.
+
+SUBNETTING:Subnetting is the process of dividing a larger IP network into smaller networks, called subnets, to make the network easier to organize and manage.
+This helps organize devices, reduce unnecessary traffic, and control which parts of a network can communicate with each other.IT USES CIDR NOTATION TO DECIDE SUBNET SIZE;
+
+
+
+

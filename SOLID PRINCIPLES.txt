@@ -1,0 +1,30 @@
+SOLID PRINCIPLES
+.....
+SINGLE RESPOSIBILITY
+.....
+OPEN FOR EXTENSION CLOSED FOR MODIFICATION
+LISKOV SUBSTITUTION: PARENT CLASS CAN BE REPLACED BY SUB CLASS.EXAMPLE OF SAVING ACCOUNT ,CURRENT ACCOUNT AND FIXED ACCOUNT all three extends class account which has methods like withdraw and deposit both . In fixed account we can only deposit so this class can not be replaced with accouts class so this breaks liskov substitution so soltion is that we make two class depositableaccount and WithrawableAccout which extends depositableAccount. now fixed account will exted depositableAccount class only and rest will extend withdrwableAccount class so that they will have boht features as withdrawable class extends depositableAccount class also.
+1. singnature rule: same type or broader type of argument  hone chahiye jo class implent kr rhi hai uski mehtod ka
+return type rule: same or narrowed return type.
+Exception rule:child will throw same or narrowed exception.
+2.property rule:
+class invarient:
+if parent class ka koi strict rule to child class ko bhi folllow krna padega.eg: if parent class says amount can not be -ve then child class mie aisa kuch nhi hona chahiye jis se amount -ve ban jae
+History constraint:if ceratins are allwoed thenn we can not cancel it out later.
+Immutable class or methods: using final class.Child class can not make method or class mutable.
+3.pre conditoin
+eg parent class: password >=8
+then child class: can be same or weaken it e.g password>=6  but can not be strenghten
+post constraint: can be same or strong.
+.......
+INTERFACE SEGREGATION PRINCIPLE
+CLASS should not be forced to implement methods it doesn't need.
+example: instead of 1 abstract class shape we segreate it into two interfaces 2dshapes and 3d shapes so that 2d shapes dont have to unnecessaryily implement volume method.
+.........
+DEPENDENCY INVERSION PRINCIPLE
+high level module should not depend directly on low level modules but rather both should depend on abstraction.i.e dono abstraction ke through baat karege
+eg.
+instead of application directly interaction with diff type of database eq. sql ,mongodb and cassandra it will  intteract with  a interface called persistent which willl have save() method and then diff class like savetosql,savetomongo and savetocassandra will implement that and have their own method.in this way it saves us from breaking open /close principle also
+
+.........
+
